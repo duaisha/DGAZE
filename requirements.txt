@@ -27,7 +27,7 @@ decorator==4.3.0
 deepgaze==0.1
 defer==1.0.6
 devscripts===2.16.2ubuntu3
-Django==2.0.3
+Django==2.2.13
 django-extensions==2.1.7
 dlib==19.17.0
 dm-sonnet==1.34
