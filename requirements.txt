@@ -50,7 +50,7 @@ guacamole==0.9.2
 h5py==2.9.0
 hmmlearn==0.2.0
 html5lib==0.9999999
-httplib2==0.9.1
+httplib2==0.19.0
 idna==2.8
 imageio==2.1.2
 imbalanced-learn==0.3.3
