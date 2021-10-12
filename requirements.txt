@@ -99,7 +99,7 @@ numpy==1.16.2
 oauthlib==1.0.3
 olefile==0.46
 onboard==1.2.0
-opencv-contrib-python==4.1.0.25
+opencv-contrib-python==4.2.0.32
 opencv-python==4.1.0.25
 openslide-python==1.1.0
 padme==1.1.1
