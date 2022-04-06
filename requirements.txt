@@ -94,7 +94,7 @@ nbformat==4.4.0
 networkx==2.1
 nlg-eval==2.2
 nltk==3.4
-notebook==5.4.0
+notebook==6.4.10
 numpy==1.16.2
 oauthlib==1.0.3
 olefile==0.46
