@@ -95,7 +95,7 @@ networkx==2.1
 nlg-eval==2.2
 nltk==3.4
 notebook==5.4.0
-numpy==1.16.2
+numpy==1.22.0
 oauthlib==1.0.3
 olefile==0.46
 onboard==1.2.0
