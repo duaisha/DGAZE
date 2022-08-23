@@ -89,7 +89,7 @@ mistune==0.8.3
 mlxtend==0.11.0
 mock==2.0.0
 moviepy==0.2.3.2
-nbconvert==5.3.1
+nbconvert==6.5.1
 nbformat==4.4.0
 networkx==2.1
 nlg-eval==2.2
