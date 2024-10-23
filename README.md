@@ -1,6 +1,6 @@
 # Clone DGAZE repository
-git clone 
-cd DGAZE repo 
+- git clone 
+- cd DGAZE repo 
 
 # Download DGAZE dataset from the provided link in DGAZE repository
 It will download a folder names "dataset_download"(20GB approx), put it in DGAZE repository
