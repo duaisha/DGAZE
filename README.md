@@ -1,91 +1,95 @@
-# DGAZE: Driver Gaze Mapping on Road #
+# DGAZE: Driver Gaze Mapping on Road
 
-## Clone DGAZE repository
-- git clone 
-- cd DGAZE repo 
+## Clone DGAZE Repository
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   ```
+2. Navigate to the DGAZE directory:
+   ```bash
+   cd DGAZE
+   ```
 
-<<<<<<< HEAD
+## Prepare Dataset
 
-## Prepare Dataset:
+### 1. Download DGAZE Dataset
+- Download the dataset from the provided link in the DGAZE repository. It will download a folder named **"dataset_download"** (approximately 20GB).
+- Place this folder in the DGAZE repository directory.
 
-#### Download DGAZE dataset from the provided link in DGAZE repository
-- It will download a folder names "dataset_download"(20GB approx), put it in DGAZE repository
+### 2. Code for Drop Rate Calculation (Reference Code)
+- The drop rate for each sample corresponding to each driver is already provided, so this step can be skipped.
+- If you want to calculate it yourself, use the following command:
+   ```bash
+   python Codes/Dataset_codes/drop_rate.py --path "<Path_to_DGAZE_folder>"
+   ```
 
-#### Code to get drop rate by aligning driver view, projected road view and actual road video (Reference Code)
-- We already provide drop rate for each sample corresponding to each driver so this step can be skipped, providing code for reference.
-- python Codes/Dataset_codes/drop_rate.py --path "Path to DGAZE folder"
+### 3. Get Dataset Folder
+- Run the following command to retrieve the dataset folder:
+   ```bash
+   python Codes/Dataset_codes/dataset.py --path "<Path_to_DGAZE_folder>"
+   ```
 
-#### Run following commmand to get dataset folder 
-- python Codes/Dataset_codes/dataset.py --path "Path to DGAZE folder" 
-=======
-## Download DGAZE dataset from the provided link in DGAZE repository
-- It will download a folder names "dataset_download"(20GB approx), put it in DGAZE repository
+## Visualize the DGAZE Dataset
+- Use the `visualize_dataset.ipynb` file located in **Codes/Dataset_codes/** to visualize the driver view and road view with gaze point variation across the sample video for each driver.
 
-## Code to get drop rate by aligning driver view, projected road view and actual road video (Reference Code)
-- We already provide drop rate for each sample corresponding to each driver so this step can be skipped, providing code for reference.
-- python codes/drop_rate.py --path "Path to DGAZE folder"
+## Extracted Features
+- You can either download the pre-extracted features used in the research or generate your own following the steps in the next section.
 
-## Run following commmand to get dataset folder 
-- python codes/dataset.py --path "Path to DGAZE folder" 
+### 1. Download Extracted Features
+- Download the extracted features from Google Drive:
+   - **DGAZE_extracted_data.pkl**
+   - **DGAZE_data_split.pkl**
 
-## Visualize the DGAZE dataset
-- Visualize.ipynb file contains driver view and road view with gaze point variation across whole sample video for each driver.
+- Place these downloaded `.pkl` files in the **DGAZE/DGAZE_extracted_data** directory.
 
-## deep-features-video
-- Script to extract CNN features from video frames using a Keras pre-trained VGG-19 model.
->>>>>>> 818ec89c4b164d53427b6f138b75f33338d4adec
+### 2. Contents of 'DGAZE_extracted_data.pkl':
+   - **Left Eye Image**: Shape (nframes x 36 x 60 x 3)
+   - **Right Eye Image**: Shape (nframes x 36 x 60 x 3)
+   - **Face Location / Bounding Box**: Shape (nframes x 4)
+   - **Head Pose & Pupil Data**: Shape (nframes x 11)
+     - Includes: (nframes, roll, pitch, yaw, lpupil(x,y), rpupil(x,y), face_area, nose(x,y))
+   - **Gaze Point**: Shape (nframes x 6)
+     - First two values: center of the object bounding box (x, y)
+     - Next four values: coordinates of the top-left and bottom-right corners of the object
 
-#### Visualize the DGAZE dataset
-- Codes/Dataset_codes/visualize_dataset.ipynb file contains driver view and road view with gaze point variation across whole sample video for each driver.
+## State-of-the-Art (SOTA) Feature Extraction
 
+### Feature Branch
+1. **Face Detection**:
+   - Use the **DLIB** library to extract facial landmarks and the face bounding box.
+   - This helps in determining the location of the face in the scene using the bounding box and nose.
 
-## Extracted features:
+2. **Area of Face Bounding Box**:
+   - Calculate the area of the face bounding box. This is important for estimating the distance of the head from the screen, assuming that facial area remains consistent across drivers.
 
-   (Download the extracted features used by us or generate one of your own using extracting features steps given in next section)
-   - Download the extracted features from google driver 'DGAZE_extracted_data.pkl' and 'DGAZE_data_split.pkl'
-   - Add the above downloaded pkl files to DGAZE/DGAZE_extracted_data
-   - What  'DGAZE_extracted_data.pkl' contains
-     -- left_eye image: (nframes x 36 x 60 x 3)
-     -- right_eye image: (nframes x 36 x 60 x 3)
-     -- face location/face bounding box: (nframes x 4)
-     -- headpose_pupil: (nframes x 11)
-        - (nframes, roll, pitch, yaw, lpupil(x,y), rpupil(x,y), face_area, nose(x,y))
-     -- gaze_point: (nframesx6)
-        - First two values are center of object bounding box (x,y)
-        - Next four are x,y corresponding to top left point of the object and bottom right of the object respectively.
+3. **Head Pose**:
+   - Use **yaw**, **pitch**, and **roll** angles as input features for the network.
 
-## SOTA used to Extract Features:
+4. **Pupil Location**:
+   - Use the X and Y coordinates to approximate the gaze direction.
 
-#### Feature Branch
-1. Face Detection
-   - Using DLIB library 
-   - It gives Face Bounding Box and Facial Landmarks including pupil location 
-   - We use Face bounding box and nose to get the location of face in the scene
-   
-2. Area of face bounding box
-   - Use abount face bounding box to get the area 
-   - It helps us to distance of the head from the screen assuming that facial area does not vary much between drivers.
-  
-3. Head Pose
-   - We use Yaw, pitch and roll as input to the network. 
-   
-4. Pupil Location
-   -  Location: X,Y
-   - it helps to  approximate the gaze direction
-   
-- Total Number of Features: 10 
+   **Total Number of Features**: 10
 
-- Eye Branch
-1. Left Eye Image:
-   - Image dim: 36x60x3
-   - Extracted by fitting a bounding around facial key points extracted in face detection step
+### Eye Branch
+1. **Left Eye Image**:
+   - Image dimensions: **36x60x3**
+   - Extracted by fitting a bounding box around facial key points detected in the face detection step.
 
-  
-#### CNN features (Not Using)
-- Script to extract CNN features from video frames using a pre-trained VGG-19 model.
-- Code: DGAZE/Codes/Extract_Features_Codes/CNN_face_features/extract_features.sh
+### CNN Features (Not Used)
+- A script is available to extract CNN features from video frames using a pre-trained VGG-19 model.
+   ```bash
+   DGAZE/Codes/Extract_Features_Codes/CNN_face_features/extract_features.sh
+   ```
 
+## Training the Model
+1. Check the training data saved in `.pkl` files using the following script:
+   ```bash
+   DGAZE/Codes/Training_Model/Check_training_data.ipynb
+   ```
+2. Train the model by running:
+   ```bash
+   python main.py
+   ```
+```
 
-## Training the model:
-- Check the training data saved in pkl files using the scipt: DGAZE/Codes/Training_Model/Check_training_data.ipynb
-- Train the model by running: python main.py
+This code is now in one neat, well-structured markdown block for easy use. Let me know if you need further improvements!
