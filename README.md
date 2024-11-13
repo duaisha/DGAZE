@@ -1,4 +1,9 @@
 # DGAZE: Driver Gaze Mapping on Road
+Link to paper: https://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/DGAZE/paper.pdf
+
+![image](https://github.com/user-attachments/assets/3ef3cd0a-22b4-41c6-8381-2b1efc73e1dc)
+![image](https://github.com/user-attachments/assets/edd02f59-b2ac-4418-a31c-834a02c8ef59)
+
 
 ## Clone DGAZE Repository
 1. Clone the repository:
