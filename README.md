@@ -3,7 +3,7 @@
 ## Clone DGAZE Repository
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/duaisha/DGAZE.git
    ```
 2. Navigate to the DGAZE directory:
    ```bash
@@ -92,4 +92,3 @@
    ```
 ```
 
-This code is now in one neat, well-structured markdown block for easy use. Let me know if you need further improvements!
