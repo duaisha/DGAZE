@@ -1,4 +1,7 @@
 # DGAZE: Driver Gaze Mapping on Road
+
+DGAZE is a new dataset for mapping the driver's gaze onto the road!
+
 ## Important Links
 - **[Link to Paper](https://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/images/Projects/DGAZE/paper.pdf)**  
    This paper explains the research and methodology behind DGAZE.
@@ -8,8 +11,6 @@
 
 - **[Extracted Features (Google Drive)](https://drive.google.com/drive/folders/12L2ctyKjOcDl8-oZ8jgoDihnFVBjIbMj?usp=sharing)**  
    You can download the extracted features used in the DGAZE research from the link above.
-   
-DGAZE is a new dataset for mapping the driver's gaze onto the road!
 
 ![image](https://github.com/user-attachments/assets/3ef3cd0a-22b4-41c6-8381-2b1efc73e1dc)
 ![image](https://github.com/user-attachments/assets/edd02f59-b2ac-4418-a31c-834a02c8ef59)
