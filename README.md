@@ -10,7 +10,9 @@
    cd DGAZE
    ```
 
-## Prepare Dataset
+Note that Step-1 and Step-2 is to use raw dataset.In order to use extracted features, switch directly to step-3
+
+## Step-1: Prepare Dataset
 
 ### 1. Download DGAZE Dataset
 - Download the dataset from the provided link in the DGAZE repository. It will download a folder named **"dataset_download"** (approximately 20GB).
@@ -32,27 +34,7 @@
 ## Visualize the DGAZE Dataset
 - Use the `visualize_dataset.ipynb` file located in **Codes/Dataset_codes/** to visualize the driver view and road view with gaze point variation across the sample video for each driver.
 
-## Extracted Features
-- You can either download the pre-extracted features used in the research or generate your own following the steps in the next section.
-
-### 1. Download Extracted Features
-- Download the extracted features from Google Drive:
-   - **DGAZE_extracted_data.pkl**
-   - **DGAZE_data_split.pkl**
-
-- Place these downloaded `.pkl` files in the **DGAZE/DGAZE_extracted_data** directory.
-
-### 2. Contents of 'DGAZE_extracted_data.pkl':
-   - **Left Eye Image**: Shape (nframes x 36 x 60 x 3)
-   - **Right Eye Image**: Shape (nframes x 36 x 60 x 3)
-   - **Face Location / Bounding Box**: Shape (nframes x 4)
-   - **Head Pose & Pupil Data**: Shape (nframes x 11)
-     - Includes: (nframes, roll, pitch, yaw, lpupil(x,y), rpupil(x,y), face_area, nose(x,y))
-   - **Gaze Point**: Shape (nframes x 6)
-     - First two values: center of the object bounding box (x, y)
-     - Next four values: coordinates of the top-left and bottom-right corners of the object
-
-## State-of-the-Art (SOTA) Feature Extraction
+## Step 2: State-of-the-Art (SOTA) Feature Extraction Methods Used:
 
 ### Feature Branch
 1. **Face Detection**:
@@ -81,7 +63,29 @@
    DGAZE/Codes/Extract_Features_Codes/CNN_face_features/extract_features.sh
    ```
 
-## Training the Model
+## Step-3: Extracted Features
+- You can either download the pre-extracted features used in the research or generate your own following the steps in the next section.
+
+### 1. Download Extracted Features
+- Download the extracted features from Google Drive:
+   - **DGAZE_extracted_data.pkl**
+   - **DGAZE_data_split.pkl**
+
+- Place these downloaded `.pkl` files in the **DGAZE/DGAZE_extracted_data** directory.
+
+### 2. Contents of 'DGAZE_extracted_data.pkl':
+   - **Left Eye Image**: Shape (nframes x 36 x 60 x 3)
+   - **Right Eye Image**: Shape (nframes x 36 x 60 x 3)
+   - **Face Location / Bounding Box**: Shape (nframes x 4)
+   - **Head Pose & Pupil Data**: Shape (nframes x 11)
+     - Includes: (nframes, roll, pitch, yaw, lpupil(x,y), rpupil(x,y), face_area, nose(x,y))
+   - **Gaze Point**: Shape (nframes x 6)
+     - First two values: center of the object bounding box (x, y)
+     - Next four values: coordinates of the top-left and bottom-right corners of the object
+
+
+
+## Step-4: Training the Model
 1. Check the training data saved in `.pkl` files using the following script:
    ```bash
    DGAZE/Codes/Training_Model/Check_training_data.ipynb
