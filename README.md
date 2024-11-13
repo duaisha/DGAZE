@@ -83,7 +83,7 @@ Note that Step-1 and Step-2 is to use raw dataset.In order to use extracted feat
 - You can either download the pre-extracted features used in the research or generate your own following the steps in the next section.
 
 ### 1. Download Extracted Features
-- Download the extracted features from Google Drive:
+[Download the Extracted Features From Google Drive](https://drive.google.com/drive/folders/12L2ctyKjOcDl8-oZ8jgoDihnFVBjIbMj?usp=sharing)** 
    - **DGAZE_extracted_data.pkl**
    - **DGAZE_data_split.pkl**
 
